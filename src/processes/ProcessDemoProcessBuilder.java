@@ -1,4 +1,4 @@
-package processesAndThreads;
+package processes;
 import java.io.IOException;
 
 /**
