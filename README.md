@@ -1,5 +1,7 @@
-# Processes-Threads-Concurrency-exercise-practice
-Practice exercises from my education in Computer Science. Exercises in Processes, Threads, and Concurrency. The exercises helped me gain a better understanding of the topics.
+# Processes, Threads, Concurrency exercise practice
+Practice exercises from my education in Computer Science. Exercises in Processes, Threads, and Concurrency.
+
+The exercises helped me gain a better understanding of the topics.
 
 ## Topics
 - Processes - How to start a process
