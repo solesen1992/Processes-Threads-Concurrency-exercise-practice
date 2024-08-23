@@ -3,6 +3,8 @@ Practice exercises from my education in Computer Science. Exercises in Processes
 
 The exercises helped me gain a better understanding of the topics.
 
+The original code can be seen here: https://github.com/goldfingyr/DMA-CSD-S233
+
 ## Topics
 - Processes - How to start a process
 - Threads - How to make a thread using 'extends Thread' and 'implement Runnable'.
