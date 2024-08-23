@@ -3,6 +3,7 @@ Practice exercises from my education in Computer Science. Exercises in Processes
 
 The exercises helped me gain a better understanding of the topics.
 
+## Credit
 The original code can be seen here: https://github.com/goldfingyr/DMA-CSD-S233
 
 ## Topics
