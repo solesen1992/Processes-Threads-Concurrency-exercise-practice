@@ -1,5 +1,7 @@
 package semaphores;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * The SemaphoreDemo class is the driver class. It creates two semaphores semPro and semCon 
  * with initial permits of 1 and 0 respectively. Then it creates two MyThread objects 
@@ -46,5 +48,34 @@ package semaphores;
  * */
 
 public class SemaphoreDemo {
-	
+	public static void main(String[] args) throws InterruptedException {
+		// Creating a Semaphore object
+		// Creates a Semaphore with 1 permit, allowing the producer to acquire it immediately. 
+		//It ensures only one permit is available at a time for the producer.
+        Semaphore semProducer = new Semaphore(1); 
+        // Creates a Semaphore with 0 permits, initially blocking the consumer from 
+        //proceeding until the producer releases a permit.
+        Semaphore semConsumer = new Semaphore(0); 
+
+        // Creating two threads named "Producer" and "Consumer"
+        // Creates a new thread (mt1) of type MyThread, passing semProducer and 
+        // semConsumer semaphores, and the name "Producer".
+        MyThread mt1 = new MyThread(semProducer, semConsumer, "Producer"); 
+        // Creates another thread (mt2) of type MyThread, passing semProducer and 
+        // semConsumer semaphores, and the name "Consumer".
+        MyThread mt2 = new MyThread(semProducer, semConsumer, "Consumer"); 
+
+        // Starting threads
+        mt1.start(); // Starts the "Producer" thread (mt1), causing it to execute its run() method.
+        mt2.start(); // Starts the "Consumer" thread (mt2), causing it to execute its run() method.
+
+        // Waiting for threads
+        mt1.join(); // Waits for the "Producer" thread (mt1) to finish its execution before proceeding.
+        mt2.join(); // Waits for the "Consumer" thread (mt2) to finish its execution before proceeding.
+
+        // count will be 5 after both threads complete execution
+        // After both threads have finished, prints the final value of the shared resource, 
+        // which should be 5 if both threads executed correctly.
+        System.out.println("count: " + SharedResource.count); 
+    }
 }
