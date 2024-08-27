@@ -39,7 +39,7 @@ This package demonstrates the use of semaphores to solve the classic Producer/Co
 Semaphores maintain a counter, which represents the number of permits available. When a thread wants to access the resource, it tries to "acquire" a permit:
 - If a permit is available (the counter is greater than 0), the counter is decremented, and the thread gains access to the resource.
 - If no permits are available (the counter is 0), the thread is blocked until another thread "releases" a permit by incrementing the counter.
-Semaphores are useful in preventing race conditions, ensuring that only a specific number of threads can access the shared resource simultaneously, thus maintaining data integrity and proper synchronization between threads.
+- Semaphores are useful in preventing race conditions, ensuring that only a specific number of threads can access the shared resource simultaneously, thus maintaining data integrity and proper synchronization between threads.
 
 - MyThread extends the Thread class and represents a thread that can act as either a producer or a consumer, depending on its name. The synchronization between the producer and consumer is managed by two semaphores: semProducer and semConsumer. SemProducer controls access for the producer thread and SemConsumer controls access for the consumer thread.
 - SemaphoreDemo is the driver class that sets up the environment for the producer and consumer threads: SemProducer: Initialized with 1 permit, allowing the producer to start immediately. SemConsumer: Initialized with 0 permits, blocking the consumer until the producer releases a permit.
