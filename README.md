@@ -14,7 +14,6 @@ I've only made small changes to some of the code. My primary goal was to get an 
 - Semaphores - Synchronization to prevent deadlock
 - Circular buffer - Data structure
 - FIFO (First in, First out)
-- Buffer
 
 ## Documentation
 ### Processes
