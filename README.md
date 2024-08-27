@@ -25,7 +25,7 @@ The processes package demonstrates various methods to start and manage operating
 #### ProcessDemoProcessBuilder
 This class demonstrates how to start an external process (e.g., Google Chrome) using the ProcessBuilder class in Java. It encapsulates the process management functionality and provides feedback on whether the process started successfully.
 
-Key Points:
+##### Key Points:
 - ProcessBuilder: A flexible class that can configure and start a process.
 - start(): Initiates the process.
 - waitFor(): Blocks the current thread until the process terminates.
@@ -34,7 +34,7 @@ Key Points:
 #### ProcessDemoRuntimeExec
 This class demonstrates how to start an external process (e.g., Google Chrome) using the Runtime.exec() method in Java. Like the ProcessDemoProcessBuilder, this class manages the process and provides feedback on its execution status.
 
-Key Points:
+##### Key Points:
 - Runtime.exec(): An alternative method to ProcessBuilder for starting external processes.
 - Process Management: Similar process handling approach as ProcessDemoProcessBuilder.
 - Runtime.getRuntime(): Accesses the runtime environment, which can be used to execute a command in a separate process.
@@ -42,7 +42,7 @@ Key Points:
 #### StartProcess
 This class provides a basic example of starting a process using ProcessBuilder to open the Notepad application on the user's system.
 
-Key Points:
+##### Key Points:
 - Simple Process Launch: Demonstrates the simplest use of ProcessBuilder to launch a native application (Notepad).
 - No Process Management: Unlike the previous examples, this class does not handle process termination or exit codes.
 
@@ -55,27 +55,27 @@ In general, implementing Runnable is the preferred approach when a class needs t
 Implements: Runnable
 This class represents a task that can be executed by a thread. The task includes printing a greeting message, sleeping for a random duration (0 to 1000 milliseconds), and then printing a goodbye message.
 
-Methods:
+##### Methods:
 - public void run(): This method contains the logic that the thread will execute. It prints a greeting, sleeps for a random time, and then prints a goodbye message.
 
 #### MyThread
 Extends: Thread
 This class extends the Thread class and overrides the run() method to define the thread's behavior. Similar to MyRunnable, it prints a greeting, sleeps for a random duration, and then prints a goodbye message.
 
-Methods:
+##### Methods:
 - public void run(): Overrides the run() method of Thread to define the task's behavior.
 
 #### ThreadsDemoExtendsThread
 Package: threads
 This class demonstrates the creation and execution of threads using the MyThread class, which extends the Thread class.
 
-Methods:
+##### Methods:
 - public static void main(String[] args): The main method creates four instances of MyThread, starts them, and waits for them to complete using join().
 
 #### ThreadsDemoRunnable
 This class demonstrates the creation and execution of threads using the MyRunnable class, which implements the Runnable interface.
 
-Methods:
+##### Methods:
 - public static void main(String[] args): The main method creates four instances of MyRunnable, wraps them in Thread objects, starts them, and waits for them to complete using join().
 
 ### Semaphores
@@ -95,7 +95,7 @@ MyThread extends the Thread class and represents a thread that can act as either
 - semProducer: Controls access for the producer thread.
 - semConsumer: Controls access for the consumer thread.
 
-Method: run()
+##### Method: run()
 - This method defines the execution logic for the thread:
 - Producer Thread: Increments the shared resource count, signals the consumer to proceed by releasing semConsumer, and pauses briefly to allow a context switch.
 - Consumer Thread: Reads the value of the shared resource count, signals the producer to proceed by releasing semProducer, and continues.
@@ -116,17 +116,17 @@ The provided code consists of two classes: Buffer and CircularBuffer. The Buffer
 #### Buffer
 The Buffer class simulates a circular buffer, which allows data to be written and read in a first-in, first-out (FIFO) manner. This implementation is designed to be thread-safe, ensuring that multiple threads can interact with the buffer concurrently without conflicts.
 
-Key Concepts:
+##### Key Concepts:
 - Circular Buffer: A circular buffer is a fixed-size data structure that uses a single, contiguous block of memory. The write and read positions (pointers) wrap around to the beginning once they reach the end of the buffer, forming a continuous loop.
 - Synchronization: The Buffer class uses synchronized methods and Java’s wait() and notifyAll() mechanisms to manage concurrent access by producer and consumer threads.
 
-Instance Variables:
+##### Instance Variables:
 - BufferSize: The size of the buffer, set to 4 in this implementation.
 - Container: An integer array that acts as the storage for the buffer.
 - PositionRead: Tracks the current position from where data will be read.
 - PositionWrite: Tracks the current position where data will be written.
 
-Methods:
+##### Methods:
 synchronized int Read():
 - Retrieves and removes an item from the buffer.
 - If the buffer is empty (i.e., PositionRead == PositionWrite), the thread waits until data is available.
@@ -146,10 +146,10 @@ Both the write and read positions (PositionWrite and PositionRead) wrap around w
 #### CircularBuffer
 The CircularBuffer class demonstrates the practical use of the Buffer class. It creates and starts two threads: one for the producer (which writes data to the buffer) and one for the consumer (which reads data from the buffer).
 
-Key Components:
+##### Key Components:
 - static Buffer MyBuffer: A shared instance of the Buffer class that both threads use to read and write data.
 
-Main Method:
+##### Main Method:
 Producer Thread:
 - Writes 20 integers (from 0 to 19) to the buffer.
 - After each write, it prints the value that was added to the buffer.
