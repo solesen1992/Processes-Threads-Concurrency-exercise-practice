@@ -1,5 +1,8 @@
 package monitor;
 
-public class Consumer {
+public class Consumer extends Thread {
+	private Buffer buffer;
+	
+	
 
 }
