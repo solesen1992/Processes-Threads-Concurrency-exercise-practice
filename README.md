@@ -69,3 +69,14 @@ The SharedFiFoQueue is a FIFO queue because it retrieves elements in the same or
 - The SharedFiFoQueue uses a circular buffer to manage elements efficiently, with ReentrantLock and Condition ensuring proper synchronization between threads.
 - The program terminates when both the producer and consumer threads finish their work, which is ensured by the join() calls in the ConditionDemo class.
 
+### Monitor 🌟
+A monitor in concurrent programming is a synchronization construct that allows threads to have both mutual exclusion (i.e., only one thread can execute a critical section of code at a time) and the ability to wait (block) and be notified (awaken) when certain conditions are met. In Java, a monitor is implemented by using the synchronized keyword, along with the wait(), notify(), and notifyAll() methods provided by the Object class. Each object in Java has an associated monitor that a thread can lock or unlock.
+
+How the Code Uses a Monitor
+- The methods Put() and Get() in the Buffer class are declared as synchronized. This means that when a thread calls one of these methods on an instance of Buffer, it automatically acquires the lock (monitor) associated with that Buffer instance. No other thread can execute any other synchronized method on that instance until the lock is released.
+- wait() Method: Inside Put(), if the buffer is full (count == buffer.length), the producer thread calls wait(). This causes the producer thread to release the monitor (lock) and suspend its execution until it is notified.
+Similarly, in Get(), if the buffer is empty (count == 0), the consumer thread calls wait() and waits to be notified when an item is available in the buffer.
+- notify() Method: After producing an item and adding it to the buffer in Put(), the producer calls notify() to wake up a waiting consumer thread. After consuming an item and removing it from the buffer in Get(), the consumer calls notify() to wake up a waiting producer thread.
+- Mutual Exclusion: The synchronized keyword ensures that only one thread can execute the Put() or Get() method on the Buffer object at any given time.
+- Thread Coordination: The wait() and notify() methods are used to coordinate the actions of the producer and consumer. For instance, the producer must wait if the buffer is full, and the consumer must wait if the buffer is empty.
+- This use of monitors ensures that the producer and consumer threads work together correctly, avoiding race conditions and ensuring that the buffer is used properly.
